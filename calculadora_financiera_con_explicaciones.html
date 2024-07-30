@@ -1,0 +1,117 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Financiera</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 80%;
+            max-width: 600px;
+            margin: auto;
+            background: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+        input, button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+        }
+        button {
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+        }
+        .result {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .explanation {
+            margin-top: 20px;
+            background-color: #e9ecef;
+            padding: 15px;
+            border-radius: 5px;
+        }
+        .explanation h3 {
+            margin-top: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Calculadora Financiera</h1>
+        
+        <h2>Fórmula básica de la deuda</h2>
+        <input type="number" id="activos1" placeholder="Activos">
+        <input type="number" id="capital1" placeholder="Capital">
+        <button onclick="calcularDeuda()">Calcular Deuda</button>
+        <div class="result" id="deuda"></div>
+
+        <h2>Fórmula de los activos</h2>
+        <input type="number" id="capital2" placeholder="Capital">
+        <input type="number" id="deuda2" placeholder="Deuda">
+        <button onclick="calcularActivos()">Calcular Activos</button>
+        <div class="result" id="activos"></div>
+
+        <h2>Fórmula del capital (o patrimonio neto)</h2>
+        <input type="number" id="activos3" placeholder="Activos">
+        <input type="number" id="deuda3" placeholder="Deuda">
+        <button onclick="calcularCapital()">Calcular Capital</button>
+        <div class="result" id="capital"></div>
+
+        <div class="explanation">
+            <h3>Explicación de las fórmulas</h3>
+            
+            <h4>1. Fórmula básica de la deuda</h4>
+            <p><strong>Fórmula:</strong> Deuda = Activos - Capital</p>
+            <p><strong>Explicación:</strong> Esta fórmula se utiliza para calcular la deuda total de una entidad. Los "activos" representan todo lo que la entidad posee y tiene valor (por ejemplo, efectivo, bienes, inventarios, etc.), mientras que el "capital" (o patrimonio neto) es el valor que los propietarios han invertido en la entidad. La deuda es la diferencia entre los activos totales y el capital, indicando cuánto se debe a los acreedores.</p>
+            <p><strong>Ejemplo:</strong> Si una empresa tiene activos por valor de $100,000 y capital por $60,000, la deuda sería:</p>
+            <p><strong>Deuda = 100,000 - 60,000 = 40,000</strong></p>
+
+            <h4>2. Fórmula de los activos</h4>
+            <p><strong>Fórmula:</strong> Activos = Capital + Deuda</p>
+            <p><strong>Explicación:</strong> Esta fórmula se utiliza para calcular el total de activos de una entidad. Aquí, el "capital" es el valor invertido por los propietarios y la "deuda" es lo que la entidad debe a los acreedores. Al sumar el capital y la deuda, se obtiene el total de activos, que representa todo lo que la entidad posee.</p>
+            <p><strong>Ejemplo:</strong> Si una empresa tiene capital por valor de $60,000 y deuda por $40,000, los activos totales serían:</p>
+            <p><strong>Activos = 60,000 + 40,000 = 100,000</strong></p>
+
+            <h4>3. Fórmula del capital (o patrimonio neto)</h4>
+            <p><strong>Fórmula:</strong> Capital = Activos - Deuda</p>
+            <p><strong>Explicación:</strong> Esta fórmula se utiliza para calcular el capital o patrimonio neto de una entidad. Aquí, los "activos" son todo lo que la entidad posee y tiene valor, mientras que la "deuda" es lo que debe a los acreedores. El capital es la diferencia entre los activos y la deuda, indicando el valor neto que los propietarios tienen en la entidad.</p>
+            <p><strong>Ejemplo:</strong> Si una empresa tiene activos por valor de $100,000 y deuda por $40,000, el capital sería:</p>
+            <p><strong>Capital = 100,000 - 40,000 = 60,000</strong></p>
+        </div>
+    </div>
+
+    <script>
+        function calcularDeuda() {
+            var activos = parseFloat(document.getElementById('activos1').value);
+            var capital = parseFloat(document.getElementById('capital1').value);
+            var deuda = activos - capital;
+            document.getElementById('deuda').innerText = 'Deuda: ' + deuda;
+        }
+
+        function calcularActivos() {
+            var capital = parseFloat(document.getElementById('capital2').value);
+            var deuda = parseFloat(document.getElementById('deuda2').value);
+            var activos = capital + deuda;
+            document.getElementById('activos').innerText = 'Activos: ' + activos;
+        }
+
+        function calcularCapital() {
+            var activos = parseFloat(document.getElementById('activos3').value);
+            var deuda = parseFloat(document.getElementById('deuda3').value);
+            var capital = activos - deuda;
+            document.getElementById('capital').innerText = 'Capital: ' + capital;
+        }
+    </script>
+</body>
+</html>
